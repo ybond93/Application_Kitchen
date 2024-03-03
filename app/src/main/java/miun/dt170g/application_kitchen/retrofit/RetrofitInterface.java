@@ -16,6 +16,8 @@ public interface RetrofitInterface {
     @GET("alacartemenuitem")
     Call<ArrayList<AlacarteMenuItem>> getAlacarteMenuItem();
 
+    @GET("tables")
+    Call<ArrayList<Table>> getTable();
     @PUT("tables/{tableNum}")
     Call<Table> updateTableStatus(@Path("tableNum") int tableNum, @Body Table table);
     /*@GET("employees")
