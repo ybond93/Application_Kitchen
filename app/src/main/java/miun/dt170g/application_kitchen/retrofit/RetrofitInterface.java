@@ -1,8 +1,12 @@
 package miun.dt170g.application_kitchen.retrofit;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import miun.dt170g.application_kitchen.entities.AlacarteMenuItem;
+import miun.dt170g.application_kitchen.entities.KitchenView;
+import miun.dt170g.application_kitchen.entities.Orders;
 import miun.dt170g.application_kitchen.entities.Table;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -18,8 +22,13 @@ public interface RetrofitInterface {
 
     @GET("tables")
     Call<ArrayList<Table>> getTable();
-    @PUT("tables/{tableNum}")
-    Call<Table> updateTableStatus(@Path("tableNum") int tableNum, @Body Table table);
+
+    @PUT("orders/{orderId}")
+    Call<Void> updateOrderStatus(@Path("orderId") int orderId, @Body Orders orders);
+
+    @GET("KitchenOrder")
+    Call<List<KitchenView>> getKitchenView();
+
     /*@GET("employees")
     Call<ArrayList<Employee>> getEmployee();
 
@@ -34,5 +43,4 @@ public interface RetrofitInterface {
 
     @PUT("employees/{empId}")
     Call<Employee> updateEmployee(@Path("empId") int employeeId, @Body Employee employee);*/
-
 }
